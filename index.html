@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileApp - The Future in Your Pocket</title>
+    <!-- SEO Tags -->
+    <meta name="description"
+        content="MobileApp - Smart. Fast. Designed for modern life. Join the waitlist for the future of mobile apps.">
+    <meta name="keywords" content="mobile app, SaaS, smart system, AI powered, productivity">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: '#8b5cf6',
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <header id="navbar"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-microchip text-xl"></i>
+                </div>
+                <span
+                    class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-primary-600 to-accent bg-clip-text text-transparent">Zenith
+                    AI</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="#home" class="nav-link active">Home</a>
+
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#screens" class="nav-link">Screens</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+
+                <div class="flex items-center gap-4 ml-4">
+                    <button id="themeToggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+        
+                    <a href="signup.html"
+                        class="px-6 py-2.5 text-sm font-bold text-white bg-primary-600 rounded-full hover:bg-primary-700 shadow-md hover:shadow-primary-500/40 transition-all">Get
+                        Started</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="lg:hidden flex items-center gap-4">
+                <button id="themeToggleMobile"
+                    class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button id="mobileMenuToggle" class="p-2 text-slate-600 dark:text-slate-400 focus:outline-none"
+                    aria-label="Open Menu">
+                    <i class="fas fa-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Side Drawer from Left) -->
+    <div id="mobileMenu" class="fixed inset-0 z-[60] invisible pointer-events-none transition-all duration-300">
+        <!-- Overlay -->
+        <div id="mobileMenuOverlay"
+            class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <!-- Drawer -->
+        <div id="mobileMenuDrawer"
+            class="absolute top-0 left-0 w-80 h-full bg-white dark:bg-slate-900 shadow-2xl transition-transform duration-300 -translate-x-full flex flex-col">
+            <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white">
+                        <i class="fas fa-mobile-screen-button text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold">MobileApp</span>
+                </a>
+                <button id="closeMobileMenu" class="p-2 text-slate-400 hover:text-slate-600"><i
+                        class="fas fa-xmark text-xl"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto py-6 px-6 space-y-4">
+                <a href="#home" class="mobile-nav-link text-primary-600 font-bold">Home</a>
+                <a href="#features" class="mobile-nav-link">Features</a>
+                <a href="#screens" class="mobile-nav-link">Screens</a>
+                <a href="#pricing" class="mobile-nav-link">Pricing</a>
+                <a href="#reviews" class="mobile-nav-link">Reviews</a>
+                <a href="#faq" class="mobile-nav-link">FAQ</a>
+                <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+                <div class="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-4">
+                    <a href="login.html"
+                        class="block text-center py-3 text-sm font-semibold border border-slate-200 dark:border-slate-700 rounded-xl">Sign
+                        In</a>
+                    <a href="signup.html"
+                        class="block text-center py-3 text-sm font-bold text-white bg-primary-600 rounded-xl shadow-lg shadow-primary-500/20">Get
+                        Early Access</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20"> <!-- Spacer for fixed header -->
+
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-[90vh] flex items-center overflow-hidden py-20 lg:py-32">
+            <!-- Background Image/Gradient Decoration -->
+            <div class="absolute inset-0 -z-10 overflow-hidden">
+                <div
+                    class="absolute -top-24 -left-20 w-96 h-96 bg-primary-400/20 dark:bg-primary-900/10 rounded-full blur-3xl animate-pulse">
+                </div>
+                <div
+                    class="absolute top-1/2 -right-20 w-80 h-80 bg-accent/20 dark:bg-accent-900/10 rounded-full blur-3xl animate-float">
+                </div>
+                <div id="heroBgImage"
+                    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center mix-blend-overlay opacity-5 dark:opacity-10">
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="text-center lg:text-left">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-wider mb-6 animate-bounce">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                            </span>
+                            Neural-Sync Protocol v2.4 Active
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+                            Achieve Your <br>
+                            <span class="text-primary-600">Cognitive Zenith.</span>
+                        </h1>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#waitlist" class="cta-button primary group">
+                                <span>Join the Waitlist</span>
+                                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#" class="cta-button secondary">
+                                <i class="fas fa-flask"></i>
+                                <span>Download Beta</span>
+                            </a>
+                        </div>
+
+                        <!-- App Store Badges -->
+                        <div
+                            class="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start opacity-80 hover:opacity-100 transition-opacity">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                                alt="App Store" class="h-10 hover:scale-105 transition-transform cursor-pointer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Play Store" class="h-10 hover:scale-105 transition-transform cursor-pointer">
+                        </div>
+
+                        <!-- Countdown Timer -->
+                        <div
+                            class="mt-16 p-8 rounded-3xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl border border-white/20 dark:border-slate-700/30 inline-block">
+                            <p class="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">Official
+                                Launch In</p>
+                            <div id="countdown" class="flex gap-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold" id="days">00</div>
+                                    <div class="text-[10px] uppercase text-slate-400">Days</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold" id="hours">00</div>
+                                    <div class="text-[10px] uppercase text-slate-400">Hours</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold" id="minutes">00</div>
+                                    <div class="text-[10px] uppercase text-slate-400">Mins</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold" id="seconds">00</div>
+                                    <div class="text-[10px] uppercase text-slate-400">Secs</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual -->
+                    <div class="relative">
+                        <div
+                            class="relative mx-auto w-full max-w-[320px] aspect-[9/18.5] bg-slate-800 rounded-[3rem] border-[8px] border-slate-900 shadow-2xl overflow-hidden animate-float">
+                            <!-- Phone Screen Content -->
+                            <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&q=80&w=1000"
+                                alt="App UI" class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex flex-col justify-end p-8 text-white">
+                                <p class="text-xs font-semibold mb-1 opacity-80">Next Gen Productivity</p>
+                                <p class="text-xl font-bold">Simplify Everything.</p>
+                            </div>
+                        </div>
+                        <!-- Decorative Elements -->
+                        <div
+                            class="absolute -top-10 -right-10 w-24 h-24 bg-accent-500 rounded-full blur-2xl opacity-40">
+                        </div>
+                        <div
+                            class="absolute bottom-10 -left-10 w-32 h-32 bg-primary-500 rounded-full blur-3xl opacity-30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Preview Section -->
+        <section id="screens" class="bg-slate-100 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="mb-4">Designed for Performance.</h2>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                        Experience a seamless interface that adapts to your needs. Beautiful dark and light modes
+                        tailored for any environment.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Carousel Placeholder / Mockups -->
+                    <div class="space-y-8">
+                        <div class="glass-card p-4">
+                            <div
+                                class="relative aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 flex items-center justify-center group">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=2070"
+                                    alt="Demo Video" class="absolute inset-0 w-full h-full object-cover">
+                                <div
+                                    class="absolute inset-0 bg-slate-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button
+                                        class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full border border-white/30 flex items-center justify-center text-white text-3xl">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-1 glass-card p-4 text-center">
+                                <i class="fas fa-moon text-2xl text-primary-600 mb-2"></i>
+                                <p class="text-xs font-bold uppercase">Dark Mode</p>
+                            </div>
+                            <div class="flex-1 glass-card p-4 text-center">
+                                <i class="fas fa-sun text-2xl text-primary-600 mb-2"></i>
+                                <p class="text-xs font-bold uppercase">Light Mode</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Mockups Sliders -->
+                    <div class="flex justify-center gap-4">
+                        <div
+                            class="w-1/2 aspect-[9/18.5] bg-slate-800 rounded-[2.5rem] border-4 border-slate-900 shadow-2xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1000"
+                                alt="Mockup 1" class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="w-1/2 aspect-[9/18.5] bg-slate-800 rounded-[2.5rem] border-4 border-slate-900 shadow-2xl overflow-hidden translate-y-8">
+                            <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=1000"
+                                alt="Mockup 2" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2 class="mb-4">Everything You Need.</h2>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                        Powerful features packaged in a simple, intuitive design. Built to help you achieve more in less
+                        time.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="glass-card p-8 group">
+                        <div
+                            class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-brain text-2xl"></i>
+                        </div>
+                        <h3 class="mb-3">Neural-Sync Engine</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Zenith adapts to your biological clock, scheduling high-focus tasks when your mental clarity
+                            is at its absolute peak.
+                        </p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="glass-card p-8 group">
+                        <div
+                            class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-eye text-2xl"></i>
+                        </div>
+                        <h3 class="mb-3">Contextual Foresight</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Predictive algorithms anticipate your needs, preparing resources and communications before
+                            you even realize you need them.
+                        </p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="glass-card p-8 group">
+                        <div
+                            class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-fingerprint text-2xl"></i>
+                        </div>
+                        <h3 class="mb-3">Biometric Privacy</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Your cognitive data is encrypted with military-grade protocols and stored on-device,
+                            accessible only to you.
+                        </p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="glass-card p-8 group">
+                        <div
+                            class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-satellite-dish text-2xl"></i>
+                        </div>
+                        <h3 class="mb-3">Quantum Sync</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Zero-latency synchronization across your entire digital ecosystem, ensuring your "context"
+                            follows you everywhere.
+                        </p>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="glass-card p-8 group">
+                        <div
+                            class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-sliders text-2xl"></i>
+                        </div>
+                        <h3 class="mb-3">Adaptive UI</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                            The interface morphs based on your cognitive load, reducing visual noise during deep work
+                            and expanding during exploration.
+                        </p>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="glass-card p-8 group">
+                        <div
+                            class="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400 mb-6 group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-infinity text-2xl"></i>
+                        </div>
+                        <h3 class="mb-3">Autonomic Growth</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Zenith evolves through feedback loops, becoming more attuned to your personal nuances every
+                            single day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="howitworks" class="bg-slate-50 dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2 class="mb-4">How It Works.</h2>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                        Getting started is easy. Follow these four simple steps to transform your mobile experience.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <!-- Connector Line (Desktop) -->
+                    <div
+                        class="hidden lg:block absolute top-[60px] left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-800 -z-0">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 bg-white dark:bg-slate-900 rounded-2xl border-2 border-primary-600 flex items-center justify-center text-primary-600 font-bold text-xl mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-xl">
+                                1</div>
+                            <h3 class="text-lg mb-2">Cognitive Mapping</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Zenith analyzes your peak performance
+                                hours and cognitive stressors through non-invasive behavioral tracking.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 bg-white dark:bg-slate-900 rounded-2xl border-2 border-primary-600 flex items-center justify-center text-primary-600 font-bold text-xl mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-xl">
+                                2</div>
+                            <h3 class="text-lg mb-2">Neural Calibration</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The interface and notification cycles
+                                align perfectly with your unique neural load capacity and recovery needs.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 bg-white dark:bg-slate-900 rounded-2xl border-2 border-primary-600 flex items-center justify-center text-primary-600 font-bold text-xl mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-xl">
+                                3</div>
+                            <h3 class="text-lg mb-2">Synchronized Execution</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Execute complex tasks with a companion
+                                that anticipates your needs and offloads digital friction instantly.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 bg-white dark:bg-slate-900 rounded-2xl border-2 border-primary-600 flex items-center justify-center text-primary-600 font-bold text-xl mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-xl">
+                                4</div>
+                            <h3 class="text-lg mb-2">Evolutionary Learning</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Your Zenith v-Brain evolves through
+                                feedback loops, becoming more attuned to your personal nuances every day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <!-- Glassmorphism Stats UI -->
+                        <div class="absolute -top-10 -left-10 z-20 glass-card p-6 animate-float">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold">85%</p>
+                                    <p class="text-[10px] uppercase font-bold text-slate-400">Productivity Boost</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070"
+                            alt="Benefits Image" class="rounded-[3rem] shadow-2xl relative z-10">
+                        <div class="absolute -bottom-10 -right-10 z-20 glass-card p-6 border-l-4 border-primary-600">
+                            <p class="text-lg font-bold italic">"Life-changing experience!"</p>
+                            <p class="text-xs text-slate-400">— TechInsider</p>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 space-y-12">
+                        <div>
+                            <h2 class="mb-6">Why Choose Us?</h2>
+                            <p class="text-slate-500 dark:text-slate-400">
+                                We've spent years obsessing over every pixel and interaction to ensure you have the best
+                                experience possible.
+                            </p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Benefit 1 -->
+                            <div class="flex gap-6">
+                                <div
+                                    class="shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600">
+                                    <i class="fas fa-heart-pulse"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg mb-1">Biometric Harmony</h3>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Prevent burnout with an AI
+                                        that knows exactly when you need to push and when you need to rejuvenate.</p>
+                                </div>
+                            </div>
+                            <!-- Benefit 2 -->
+                            <div class="flex gap-6">
+                                <div
+                                    class="shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600">
+                                    <i class="fas fa-brain-circuit"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg mb-1">Cognitive Offloading</h3>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Free up critical mental
+                                        bandwidth by delegating habitual digital management to your Zenith companion.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Benefit 3 -->
+                            <div class="flex gap-6">
+                                <div
+                                    class="shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg mb-1">Omnipresent Intel</h3>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Your contexts, memories, and
+                                        workflows are available at the speed of thought across every device you own.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="bg-slate-100 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="mb-4">Simple, Transparent Pricing.</h2>
+                    <div class="flex items-center justify-center gap-4 mt-8">
+                        <span class="text-sm font-semibold opacity-60">Monthly</span>
+                        <button id="pricingToggle"
+                            class="w-14 h-7 bg-slate-200 dark:bg-slate-800 rounded-full p-1 transition-colors relative">
+                            <div id="pricingDot" class="w-5 h-5 bg-primary-600 rounded-full transition-transform"></div>
+                        </button>
+                        <span class="text-sm font-semibold opacity-60">Yearly <span
+                                class="text-xs text-green-500 bg-green-500/10 px-2 py-0.5 rounded-full ml-1">Save
+                                20%</span></span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Free Plan -->
+                    <div class="glass-card p-8 border-t-8 border-slate-300 flex flex-col h-full">
+                        <div class="mb-8">
+                            <h3 class="text-xl mb-4">Free Plan</h3>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-4xl font-bold">$0</span>
+                                <span class="text-slate-400">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-12 flex-1">
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Basic AI Features</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i> 1GB
+                                Cloud Storage</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Single Device Sync</li>
+                            <li class="flex items-center gap-3 text-sm opacity-40"><i class="fas fa-xmark"></i> Priority
+                                Support</li>
+                        </ul>
+                        <button class="cta-button secondary w-full">Current Plan</button>
+                    </div>
+                    <!-- Pro Plan -->
+                    <div
+                        class="glass-card p-8 border-t-8 border-primary-600 flex flex-col h-full relative lg:scale-105 z-10 shadow-2xl">
+                        <div
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-600 text-white text-[10px] font-bold uppercase py-1 px-4 rounded-full">
+                            Most Popular</div>
+                        <div class="mb-8">
+                            <h3 class="text-xl mb-4">Pro Plan</h3>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-4xl font-bold price-value" data-monthly="19"
+                                    data-yearly="15">$19</span>
+                                <span class="text-slate-400">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-12 flex-1">
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Advanced AI Features</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i> 10GB
+                                Cloud Storage</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Multi-Device Sync</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i> 24/7
+                                Priority Support</li>
+                        </ul>
+                        <button class="cta-button primary w-full">Start Free Trial</button>
+                    </div>
+                    <!-- Business Plan -->
+                    <div class="glass-card p-8 border-t-8 border-accent flex flex-col h-full">
+                        <div class="mb-8">
+                            <h3 class="text-xl mb-4">Business Plan</h3>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-4xl font-bold price-value" data-monthly="49"
+                                    data-yearly="39">$49</span>
+                                <span class="text-slate-400">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-12 flex-1">
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Everything in Pro</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Unlimited Storage</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i> Team
+                                Connectivity</li>
+                            <li class="flex items-center gap-3 text-sm"><i class="fas fa-check text-green-500"></i>
+                                Custom API Access</li>
+                        </ul>
+                        <button class="cta-button secondary w-full">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="reviews">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="mb-4">Loved by Thousands.</h2>
+                    <div class="flex justify-center items-center gap-2 mb-4 text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span class="text-slate-900 dark:text-white font-bold ml-2">4.9 / 5</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Review 1 -->
+                    <div class="glass-card p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://i.pravatar.cc/150?u=1" alt="User"
+                                class="w-12 h-12 rounded-full border-2 border-primary-500">
+                            <div>
+                                <p class="font-bold">Sarah Jenkins</p>
+                                <p class="text-xs text-slate-400">CEO @ TechFlow</p>
+                            </div>
+                        </div>
+                        <p class="text-sm italic text-slate-600 dark:text-slate-300 mb-4">"The AI features are truly
+                            revolutionary. My team's productivity has increased by at least 40% since we started using
+                            MobileApp."</p>
+                        <div class="flex gap-1 text-xs text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="glass-card p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://i.pravatar.cc/150?u=2" alt="User"
+                                class="w-12 h-12 rounded-full border-2 border-primary-500">
+                            <div>
+                                <p class="font-bold">Mark Thompson</p>
+                                <p class="text-xs text-slate-400">Software Architect</p>
+                            </div>
+                        </div>
+                        <p class="text-sm italic text-slate-600 dark:text-slate-300 mb-4">"Security was my main concern,
+                            but their encryption standards are top-notch. I feel completely safe storing my data here."
+                        </p>
+                        <div class="flex gap-1 text-xs text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="glass-card p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://i.pravatar.cc/150?u=3" alt="User"
+                                class="w-12 h-12 rounded-full border-2 border-primary-500">
+                            <div>
+                                <p class="font-bold">Elena Rodriguez</p>
+                                <p class="text-xs text-slate-400">Freelance Designer</p>
+                            </div>
+                        </div>
+                        <p class="text-sm italic text-slate-600 dark:text-slate-300 mb-4">"The interface is so clean and
+                            intuitive. It's rare to find an app that looks this good and works even better."</p>
+                        <div class="flex gap-1 text-xs text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="cta-button primary mx-auto">Read More Reviews</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="bg-slate-50 dark:bg-slate-950">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="mb-4">Frequently Asked Questions.</h2>
+                    <p class="text-slate-500 dark:text-slate-400">Everything you need to know about MobileApp.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="glass-card">
+                        <button class="w-full p-6 text-left flex justify-between items-center faq-toggle">
+                            <span class="font-bold">What is Neural-Sync technology?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 hidden faq-content">
+                            Neural-Sync is our proprietary behavioral analysis engine that maps your productivity
+                            cycles. It non-invasively identifies your "Flow States" and "Recovery Peaks" to optimize
+                            your digital calendar and focus sessions.
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="glass-card">
+                        <button class="w-full p-6 text-left flex justify-between items-center faq-toggle">
+                            <span class="font-bold">How does Zenith protect my cognitive privacy?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 hidden faq-content">
+                            Your behavioral metrics never leave your device. Zenith uses local edge-computing to process
+                            your patterns, and all external synchronization is end-to-end encrypted with zero-knowledge
+                            architecture.
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="glass-card">
+                        <button class="w-full p-6 text-left flex justify-between items-center faq-toggle">
+                            <span class="font-bold">Can Zenith integrate with my existing tools?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 hidden faq-content">
+                            Yes. Zenith acts as an intelligent overlay for your entire digital ecosystem, including
+                            Google Workspace, Microsoft 365, and over 200+ specialized productivity applications.
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="glass-card">
+                        <button class="w-full p-6 text-left flex justify-between items-center faq-toggle">
+                            <span class="font-bold">Is the Zenith companion always active?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 hidden faq-content">
+                            Zenith operates on an "Autonomic" model. It remains subtle in the background, only surfacing
+                            insights when your cognitive load reaches a specific threshold or when a critical
+                            synchronization event occurs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="relative overflow-hidden py-32">
+            <div class="absolute inset-0 bg-primary-600 -z-10 bg-gradient-to-br from-primary-600 to-accent"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-4xl lg:text-6xl mb-8">Ready to Start?</h2>
+                <p class="text-xl opacity-90 mb-12 max-w-2xl mx-auto">Download the app today and join over 50k+ users
+                    who have already upgraded their life.</p>
+
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a href="#"
+                            class="bg-black text-white px-8 py-4 rounded-2xl flex items-center gap-4 hover:scale-105 transition-transform">
+                            <i class="fab fa-apple text-3xl"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase">Download on</p>
+                                <p class="text-xl font-bold">App Store</p>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="bg-black text-white px-8 py-4 rounded-2xl flex items-center gap-4 hover:scale-105 transition-transform">
+                            <i class="fab fa-google-play text-3xl"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase">Get it on</p>
+                                <p class="text-xl font-bold">Google Play</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hidden lg:block w-px h-24 bg-white/20"></div>
+                    <div class="flex items-center gap-6">
+                        <div class="bg-white p-3 rounded-2xl">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://mobileapp.example.com"
+                                alt="QR Code" class="w-24 h-24">
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold">Scan to Download</p>
+                            <p class="text-sm opacity-80">Available on all devices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-900 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 lg:col-span-1">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-microchip text-xl"></i>
+                        </div>
+                        <span
+                            class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-primary-600 to-accent bg-clip-text text-transparent">Zenith
+                            AI</span>
+                    </a>
+                    <p class="text-sm text-slate-500 mb-8 leading-relaxed">
+                        Leading the future of human-AI synergy with smart, cognitive-first solutions.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 hover:text-white transition-all"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 hover:text-white transition-all"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 hover:text-white transition-all"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 hover:text-white transition-all"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a href="#home" class="hover:text-primary-600 transition-colors">Home</a></li>
+                        <li><a href="#features" class="hover:text-primary-600 transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-primary-600 transition-colors">Pricing</a></li>
+                        <li><a href="#reviews" class="hover:text-primary-600 transition-colors">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-6">Legal</h4>
+                    <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a href="#" class="hover:text-primary-600 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary-600 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary-600 transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-6">Newsletter</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Stay updated with our latest news and
+                        features.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email address"
+                            class="flex-1 bg-slate-100 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                        <button
+                            class="bg-primary-600 text-white p-3 rounded-xl hover:bg-primary-700 transition-colors"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-900 text-center text-xs text-slate-400">
+                <p>&copy; 2026 Zenith Neural Systems. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+</html>

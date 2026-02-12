@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Zenith AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 600: '#0284c7' },
+                        accent: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 h-full flex items-center justify-center p-4">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-600/10 blur-3xl rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 blur-3xl rounded-full"></div>
+    </div>
+
+    <!-- Signup Card -->
+    <div class="w-full max-w-md glass-card p-10 relative">
+        <!-- Logo -->
+        <div class="flex flex-col items-center mb-6">
+            <a href="index.html" class="flex flex-col items-center gap-2 group">
+                <div
+                    class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center text-white shadow-xl shadow-primary-500/30">
+                    <i class="fas fa-microchip text-xl"></i>
+                </div>
+                <span
+                    class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-primary-600 to-accent bg-clip-text text-transparent">Zenith
+                    AI</span>
+            </a>
+        </div>
+
+        <h1 class="text-2xl font-bold text-center mb-2">Create Account</h1>
+        <p class="text-sm text-center text-slate-500 mb-6">Start your journey today.</p>
+
+        <form class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">First
+                        Name</label>
+                    <input type="text" placeholder="John"
+                        class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Last
+                        Name</label>
+                    <input type="text" placeholder="Doe"
+                        class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none">
+                </div>
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Email
+                    Address</label>
+                <input type="email" placeholder="name@company.com"
+                    class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none">
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Password</label>
+                <input type="password" placeholder="••••••••"
+                    class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none">
+            </div>
+
+            <button type="button" class="cta-button primary w-full shadow-xl shadow-primary-500/20"
+                onclick="window.location.href='dashboard.html'">Create Account</button>
+        </form>
+
+        <div class="relative my-6">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+            </div>
+            <div class="relative flex justify-center text-[10px] uppercase"><span
+                    class="bg-white dark:bg-slate-900 px-2 text-slate-400">Or sign up with</span></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <button
+                class="flex items-center justify-center gap-2 py-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                <i class="fab fa-google text-red-500"></i>
+                <span class="text-[10px] font-bold uppercase">Google</span>
+            </button>
+            <button
+                class="flex items-center justify-center gap-2 py-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                <i class="fab fa-apple text-slate-900 dark:text-white"></i>
+                <span class="text-[10px] font-bold uppercase">Apple</span>
+            </button>
+        </div>
+
+        <p class="text-center text-sm text-slate-500 mt-8">
+            Already have an account? <a href="login.html" class="text-primary-600 font-bold hover:underline">Sign in</a>
+        </p>
+    </div>
+
+</body>
+
+</html>

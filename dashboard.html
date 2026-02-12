@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Zenith AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 600: '#0284c7' },
+                        accent: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active {
+            background-color: #0284c7;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 h-full flex flex-col lg:flex-row overflow-hidden">
+
+    <!-- Mobile Header -->
+    <div
+        class="lg:hidden w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between z-50">
+        <button id="dashboardMobileMenuToggle" class="p-2 text-slate-600 dark:text-slate-400">
+            <i class="fas fa-bars-staggered text-xl"></i>
+        </button>
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white">
+                <i class="fas fa-microchip text-sm"></i>
+            </div>
+            <span class="text-xl font-bold">Zenith AI</span>
+        </a>
+        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+            <img src="https://i.pravatar.cc/150?u=4" alt="User">
+        </div>
+    </div>
+
+    <!-- Sidebar / Navigation Drawer -->
+    <aside id="dashboardSidebar"
+        class="fixed inset-0 z-[60] -translate-x-full lg:translate-x-0 lg:static lg:block w-72 h-full bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 transition-transform duration-300">
+        <div class="h-full flex flex-col p-6">
+            <a href="index.html" class="hidden lg:flex items-center gap-3 mb-10 group">
+                <div
+                    class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary-500/30 group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-microchip text-xl"></i>
+                </div>
+                <span
+                    class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-primary-600 to-accent bg-clip-text text-transparent">Zenith
+                    AI</span>
+            </a>
+
+            <nav class="flex-1 space-y-2">
+                <a href="#" class="sidebar-link active flex items-center gap-4 px-4 py-3 rounded-xl transition-all">
+                    <i class="fas fa-chart-line w-6"></i>
+                    <span class="font-semibold">Overview</span>
+                </a>
+                <a href="#"
+                    class="sidebar-link flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-calendar-check w-6"></i>
+                    <span class="font-semibold">My Bookings</span>
+                </a>
+                <a href="#"
+                    class="sidebar-link flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-id-card w-6"></i>
+                    <span class="font-semibold">Membership</span>
+                </a>
+                <a href="#"
+                    class="sidebar-link flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-bell w-6"></i>
+                    <span class="font-semibold">Notifications</span>
+                </a>
+                <a href="#"
+                    class="sidebar-link flex items-center gap-4 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-gear w-6"></i>
+                    <span class="font-semibold">Settings</span>
+                </a>
+            </nav>
+
+            <div class="pt-6 border-t border-slate-100 dark:border-slate-800">
+                <a href="login.html"
+                    class="flex items-center gap-4 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all">
+                    <i class="fas fa-right-from-bracket w-6"></i>
+                    <span class="font-semibold">Logout</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay for Sidebar (Mobile Only) -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[55] hidden lg:hidden"></div>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden">
+        <!-- Top Bar (Desktop) -->
+        <header
+            class="hidden lg:flex items-center justify-between py-4 px-8 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <h1 class="text-xl font-bold">Welcome, Karthick!</h1>
+            <div class="flex items-center gap-6">
+                <!-- Filter Icon -->
+                <button class="p-2 text-slate-400 hover:text-primary-600 transition-colors" title="Filter Options">
+                    <i class="fas fa-filter text-lg"></i>
+                </button>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <p class="text-sm font-bold">Karthick Raja</p>
+                        <p class="text-[10px] uppercase font-bold text-slate-400">Pro Member</p>
+                    </div>
+                    <div
+                        class="w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden shadow-lg border-2 border-primary-600">
+                        <img src="https://i.pravatar.cc/150?u=4" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Content -->
+        <div class="flex-1 overflow-y-auto p-8 bg-slate-50 dark:bg-slate-950">
+            <!-- Summary Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="glass-card p-6">
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Cognitive Score</p>
+                    <div class="flex items-end gap-2">
+                        <span class="text-3xl font-extrabold">98%</span>
+                        <span class="text-xs text-green-500 font-bold mb-1"><i class="fas fa-caret-up"></i>
+                            Optimal</span>
+                    </div>
+                </div>
+                <div class="glass-card p-6">
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Neural Points</p>
+                    <div class="flex items-end gap-2">
+                        <span class="text-3xl font-extrabold">1,240</span>
+                        <span class="text-xs text-primary-500 font-bold mb-1">Elite</span>
+                    </div>
+                </div>
+                <div class="glass-card p-6">
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Active Synapses</p>
+                    <div class="flex items-end gap-2">
+                        <span class="text-3xl font-extrabold">08</span>
+                    </div>
+                </div>
+                <div class="glass-card p-6">
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Time Recovered</p>
+                    <div class="flex items-end gap-2">
+                        <span class="text-3xl font-extrabold">2.4h</span>
+                        <span class="text-xs text-green-500 font-bold mb-1">Today</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Components -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Membership Status -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div
+                        class="glass-card p-8 bg-gradient-to-br from-primary-600 to-accent text-white border-none relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+                        <div class="relative z-10 flex justify-between items-start">
+                            <div>
+                                <h2 class="text-white text-2xl mb-2">Membership Status</h2>
+                                <p class="opacity-80 text-sm mb-6">Your plan is active until Dec 2026</p>
+                                <div class="flex gap-4">
+                                    <button
+                                        class="bg-white text-primary-600 px-6 py-2 rounded-xl text-sm font-bold hover:shadow-lg transition-all">Manage
+                                        Plan</button>
+                                    <button
+                                        class="bg-white/20 backdrop-blur-md text-white px-6 py-2 rounded-xl text-sm font-bold border border-white/30">View
+                                        Benefits</button>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">PRO
+                                    Yearly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Usage Stats (Bar Graphs) -->
+                    <div class="glass-card p-8">
+                        <h2 class="text-lg mb-6">Usage Statistics</h2>
+                        <div class="flex items-end gap-4 h-32">
+                            <div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg relative group h-[40%]">
+                                <div class="absolute bottom-0 left-0 w-full bg-primary-600 rounded-t-lg transition-all"
+                                    style="height: 60%;"></div>
+                            </div>
+                            <div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg relative group h-[40%]">
+                                <div class="absolute bottom-0 left-0 w-full bg-primary-600 rounded-t-lg transition-all"
+                                    style="height: 85%;"></div>
+                            </div>
+                            <div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg relative group h-[40%]">
+                                <div class="absolute bottom-0 left-0 w-full bg-primary-600 rounded-t-lg transition-all"
+                                    style="height: 45%;"></div>
+                            </div>
+                            <div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg relative group h-[40%]">
+                                <div class="absolute bottom-0 left-0 w-full bg-primary-600 rounded-t-lg transition-all"
+                                    style="height: 95%;"></div>
+                            </div>
+                            <div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg relative group h-[40%]">
+                                <div class="absolute bottom-0 left-0 w-full bg-primary-600 rounded-t-lg transition-all"
+                                    style="height: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400">
+                            <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="glass-card p-8">
+                    <h2 class="text-lg mb-6">Recent Activities</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Booking Confirmed</p>
+                                <p class="text-[10px] text-slate-400">2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-arrow-up text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Points Added</p>
+                                <p class="text-[10px] text-slate-400">Yesterday</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-triangle-exclamation text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Plan Expiring Soon</p>
+                                <p class="text-[10px] text-slate-400">3 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full mt-10 py-3 text-sm font-bold text-slate-500 hover:text-primary-600 transition-colors">See
+                        All Activity</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Dashboard specific scripts
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('dashboardSidebar');
+            const toggle = document.getElementById('dashboardMobileMenuToggle');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            const toggleSidebar = () => {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+            };
+
+            toggle?.addEventListener('click', toggleSidebar);
+            overlay?.addEventListener('click', toggleSidebar);
+
+            // Handle active state
+            const links = document.querySelectorAll('.sidebar-link');
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    links.forEach(l => l.classList.remove('active', 'bg-primary-600', 'text-white', 'shadow-lg', 'shadow-primary-500/30'));
+                    links.forEach(l => l.classList.add('text-slate-500', 'dark:text-slate-400'));
+
+                    this.classList.add('active', 'bg-primary-600', 'text-white', 'shadow-lg', 'shadow-primary-500/30');
+                    this.classList.remove('text-slate-500', 'dark:text-slate-400');
+
+                    if (window.innerWidth < 1024) toggleSidebar();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
