@@ -248,7 +248,7 @@ h4 {
 }
 
 #mobileMenu.visible #mobileMenuOverlay {
-    opacity: 100;
+    opacity: 1;
 }
 
 #mobileMenu.visible #mobileMenuDrawer {
